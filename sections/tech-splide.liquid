@@ -1,0 +1,147 @@
+<style>
+  .container {
+    margin: 25px;
+  }
+  #techSplide .splide__slide {
+    margin: 0 auto;
+    min-height: 100px;
+    text-align: center;
+    border: 1px solid olive;
+  }
+  #techSplide .splide__slide img {
+    max-width: 500px;
+    margin: 0 auto;
+    height: auto;
+  }
+  .splide__pagination {
+    bottom: -2rem !important;
+  }
+  .splide__pagination__page.is-active {
+    background: black;
+  }
+</style>
+
+<!-- <section id="techSplide" class="splide" aria-label="Splide Basic HTML Example" style="border:1px solid magenta;">
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">Slide 01</li>
+			<li class="splide__slide">Slide 02</li>
+			<li class="splide__slide">Slide 03</li>
+		</ul>
+  </div>
+</section> -->
+
+<!-- <div class="container">
+  <section id="techSplide" class="splide" aria-label="Beautiful Images">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <img src="https://www.fillmurray.com/640/360" alt="">
+          <div>
+            Description 01
+          </div>
+        </li>
+        <li class="splide__slide">
+          <img src="https://www.fillmurray.com/440/360" alt="">
+          <div>
+            Description 02
+          </div>
+        </li>
+        <li class="splide__slide">
+          <img src="https://www.fillmurray.com/240/360" alt="">
+          <div>
+            Description 03
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div> -->
+
+
+<!-- <div class="container">
+  <section id="techSplide" class="splide" aria-label="Beautiful Images">
+    <div class="splide__track">
+      <ul class="splide__list">
+
+        {% for collection in collections %}
+          <li class="splide__slide">
+            <a href="{{collection.url}}">
+              <img src="{{collection.featured_image | image_url: width: 400 }}" alt="">
+              <div>
+                <h3>{{collection.title}}<h3>
+                <p>{{collection.products_count}} products</p>
+              </div>
+            </a>
+          </li>
+      {% endfor %}
+
+      </ul>
+    </div>
+  </section>
+</div> -->
+
+
+<!-- <div class="container">
+  <section id="techSplide" class="splide" aria-label="Beautiful Images">
+    <div class="splide__track">
+      <ul class="splide__list">
+
+        {% for collection in collections %}
+          <li class="splide__slide">
+            <a href="{{collection.url}}">
+              {% for product in collection %}
+                <img src="{{product.featured_image | image_url: width: 400 }}" alt="">
+                <p>{{product.title}}</p>
+              {% endfor %}
+              <div>
+                <h3>{{collection.title}}<h3>
+                <p>{{collection.products_count}} products</p>
+              </div>
+            </a>
+          </li>
+      {% endfor %}
+      
+      </ul>
+    </div>
+  </section>
+</div> -->
+
+
+
+<div class="container">
+  <section id="techSplide" class="splide" aria-label="Beautiful Images">
+    <div class="splide__track">
+      <ul class="splide__list">
+
+        {% for collection in collections %}
+          <li class="splide__slide">
+            <a href="{{collection.url}}">
+              <img src="{{collection.products.first.images[0] | image_url: width: 400 }}" alt="">
+              <div>
+                <h3>{{collection.products.first.title}}<h3>
+                <p>{{collection.products_count}} products</p>
+              </div>
+            </a>
+          </li>
+      {% endfor %}
+
+      </ul>
+    </div>
+  </section>
+</div>
+<script>
+
+
+  // new Splide( '#techSplide' ).mount();
+
+
+
+  document.addEventListener( 'DOMContentLoaded', function() {
+    var splide = new Splide( '#techSplide', {
+      type: 'fade'
+    } );
+    splide.mount();
+  } );
+
+</script>
