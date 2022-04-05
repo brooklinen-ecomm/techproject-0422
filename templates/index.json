@@ -47,9 +47,6 @@
         "show_text_below": false
       }
     },
-    "tech-splide": {
-      "type": "tech-splide"
-    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -205,7 +202,6 @@
   },
   "order": [
     "image_banner",
-    "tech-splide",
     "rich_text",
     "featured_collection",
     "collage",
